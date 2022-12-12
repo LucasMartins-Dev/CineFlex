@@ -67,11 +67,11 @@ export default function Assento (props){
         <>
             <Inputs>
                 <h1>Nome do comprador:</h1>
-                <input data-test="client-name" onChange={event => setnomec(event.target.value)} placeholder="Digite seu nome..."></input>
+                <input data-test="client-name" value={nomec} onChange={event => setnomec(event.target.value)} placeholder="Digite seu nome..."></input>
             </Inputs>
             <Inputs>
                 <h1>CPF do comprador:</h1>
-                <input data-test="client-cpf" onChange={event => setcpf(event.target.value)} placeholder="Digite seu CPF..."></input>
+                <input data-test="client-cpf" value={cpf} onChange={event => setcpf(event.target.value)} placeholder="Digite seu CPF..."></input>
             </Inputs>
         </>
             <Link to="/sucesso"><Reserva data-test="book-seat-btn" onClick={enviardados}><button>Reservar assento(s)</button></Reserva></Link>
