@@ -19,8 +19,9 @@ export default function Sessao (props){
    return(
     <>
     {sessao.map((s)=>
-    <div key={s.id}>
-        <Containerdia data-test ="movie-day">{s.weekday} - {s.date}</Containerdia>
+    <div data-test ="movie-day" key={s.id}>
+      
+        <Containerdia >{s.weekday} - {s.date}</Containerdia>
         <Containerhoras >
         {s.showtimes.map((a)=>
          <Link key={a.id} to={`/assentos/${a.id}`}><Containerhora  data-test="showtime" onClick={()=>(props.setidses(a.id)) (props.sethora(a.name))}>{a.name}</Containerhora></Link> 
