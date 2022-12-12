@@ -10,13 +10,13 @@ export default function Horario(props){
     return(
         <>
         
-           <Link data-test="showtime" to={`/assentos/${props.a.id}`}><Containerhora  onClick={assentos}>{props.a.name}</Containerhora></Link> 
+           <Link to={`/assentos/${props.a.id}`} data-test="showtime"><Containerhora  data-test="showtime" onClick={assentos}>{props.a.name}</Containerhora></Link> 
             
         </>
     )
 }
 
-const Containerhora = styled.div`
+const Containerhora = styled.button`
 display: flex;
 align-items: center;
 justify-content: center;
