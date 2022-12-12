@@ -6,7 +6,9 @@ export default function Reservas(props){
     
     function reservar(){
         if(props.ast.isAvailable=== true){
-            
+            let auxxx = parseFloat(props.ast.name)
+            const auxx=[...props.nid,auxxx]
+            props.setnid(auxx)
             const aux=[...props.reservado,props.ast.name]
             props.setreservado(aux)
         }

@@ -9,14 +9,6 @@ export default function Assento (props){
     const[ids,setreservado]=useState([])
     const[nid,setnid]=useState([])
 
-function atualiza(){
-    let nidd=[]
-    for(let i=0;i<ids.length;i++){
-        nidd.push(parseFloat(ids[i]))
-    }
-    setnid(nidd)
-   
-}
    
 
     props.setasreservado(ids)
@@ -61,7 +53,7 @@ function atualiza(){
         <>
         <Telaassento>
         {lugares.map((ast)=>
-        <Reservas atualiza={atualiza} key={ast.id} reservado={ids} setreservado={setreservado}ast={ast}/>
+        <Reservas nid={nid}setnid={setnid} key={ast.id} reservado={ids} setreservado={setreservado}ast={ast}/>
         )}
         </Telaassento>
         <Cores>
