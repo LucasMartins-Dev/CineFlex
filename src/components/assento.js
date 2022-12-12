@@ -13,10 +13,11 @@ export default function Assento (props){
     props.setnomecc(nome)
     const[cpf,setcpf]=useState('')
     props.setcpff(cpf)
+    console.log(ids)
     console.log(nome)
     console.log(cpf)
     for(let i=0;i<ids.length-1;i++){
-        if(ids[i]==ids[ids.length-1] && ids.length>1){
+        if(ids[i]===ids[ids.length-1] && ids.length>1){
             ids.splice(i,1)
             ids.splice(ids.length-1,1)
         }
@@ -34,7 +35,7 @@ export default function Assento (props){
             ids: ids,
             name: nome,
             cpf: cpf
-	})
+        });
 	envio.then(respostaserver)
        
       }
