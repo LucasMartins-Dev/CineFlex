@@ -6,19 +6,19 @@ import Reservas from "./reservas"
 import { Link } from "react-router-dom";
 
 export default function Assento (props){
-    const[reservado,setreservado]=useState([])
-    props.setasreservado(reservado)
+    const[ids,setreservado]=useState([])
+    props.setasreservado(ids)
     const[lugares,setlugares]=useState([])
-    const[nomec,setnomec]=useState('')
-    props.setnomecc(nomec)
+    const[nome,setnomec]=useState('')
+    props.setnomecc(nome)
     const[cpf,setcpf]=useState('')
     props.setcpff(cpf)
-    console.log(nomec)
+    console.log(nome)
     console.log(cpf)
-    for(let i=0;i<reservado.length-1;i++){
-        if(reservado[i]==reservado[reservado.length-1] && reservado.length>1){
-            reservado.splice(i,1)
-            reservado.splice(reservado.length-1,1)
+    for(let i=0;i<ids.length-1;i++){
+        if(ids[i]==ids[ids.length-1] && ids.length>1){
+            ids.splice(i,1)
+            ids.splice(ids.length-1,1)
         }
     }
     useEffect(() => {
@@ -31,8 +31,8 @@ export default function Assento (props){
 
       function enviardados(){
         let envio = axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",{
-            ids: reservado,
-            name: nomec,
+            ids: ids,
+            name: nome,
             cpf: cpf
 	})
 	envio.then(respostaserver)
@@ -47,7 +47,7 @@ export default function Assento (props){
         <>
         <Telaassento>
         {lugares.map((ast)=>
-        <Reservas key={ast.id} reservado={reservado} setreservado={setreservado}ast={ast}/>
+        <Reservas key={ast.id} reservado={ids} setreservado={setreservado}ast={ast}/>
         )}
         </Telaassento>
         <Cores>
@@ -67,7 +67,7 @@ export default function Assento (props){
         <>
             <Inputs>
                 <h1>Nome do comprador:</h1>
-                <input data-test="client-name" value={nomec} onChange={event => setnomec(event.target.value)} placeholder="Digite seu nome..."></input>
+                <input data-test="client-name" value={nome} onChange={event => setnomec(event.target.value)} placeholder="Digite seu nome..."></input>
             </Inputs>
             <Inputs>
                 <h1>CPF do comprador:</h1>
