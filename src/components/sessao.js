@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useState , useEffect } from "react"
 import styled from "styled-components";
-import Horario from "./horario";
+
+import { Link } from "react-router-dom";
 
 
 export default function Sessao (props){
@@ -22,7 +23,8 @@ export default function Sessao (props){
         <Containerdia data-test ="movie-day">{s.weekday} - {s.date}</Containerdia>
         <Containerhoras >
         {s.showtimes.map((a)=>
-        <Horario sethora={props.sethora} key={a.id} setid={props.setidses}s={s} a={a}/>
+         <Link to={`/assentos/${a.id}`} data-test="showtime"><Containerhora  data-test="showtime" onClick={()=>(props.setidses(a.id)) (props.sethora(a.name))}>{a.name}</Containerhora></Link> 
+        
         )}
         </Containerhoras>
         </div>
@@ -31,17 +33,31 @@ export default function Sessao (props){
    )
 }
 
-
-const Containerdia = styled.div`
+const Containerhora = styled.button`
 display: flex;
-font-size: 20px;
-font-family: 'Roboto';
-font-weight: 400;
-margin: 22px
-
+align-items: center;
+justify-content: center;
+background-color:#E8833A;
+width: 83px;
+height: 43px;
+margin: 8px;
+border-radius: 3px;
+;
 `
 
 const Containerhoras = styled.div`
 display:flex;
 margin: 14px;
 `
+
+const Containerdia = styled.div`
+
+display: flex;
+font-size: 20px;
+font-family: 'Roboto';
+font-weight: 400;
+margin: 22px
+`
+
+
+

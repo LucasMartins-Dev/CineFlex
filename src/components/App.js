@@ -49,7 +49,7 @@ if( filmes !== null){
            </Containerfilme>
            </>
           }/>
-        <Route path={`/sessoes/${id}`} element={
+        <Route path={'/sessoes/:id'} element={
           <>
         <Titulo>Selecione o horário</Titulo> 
         <Sessao  sethora={sethora} setidses={setidses} id={id}/>
@@ -59,7 +59,7 @@ if( filmes !== null){
         </Baixo>
         </>
         }/>
-        <Route path={`/assentos/${idses}`} element={
+        <Route path={'/assentos/:id'} element={
           <>
           <Titulo>Selecione o(s) assento(s)</Titulo> 
         <Assento setnomecc={setnomec} setcpff={setcpf}setasreservado={setasreservado}setdata={setdata} setdia={setdia} idses={idses}/>
