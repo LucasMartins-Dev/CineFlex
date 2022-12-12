@@ -20,9 +20,9 @@ export default function Sessao (props){
     {sessao.map((s)=>
     <div key={s.id}>
         <Containerdia data-test ="movie-day">{s.weekday} - {s.date}</Containerdia>
-        <Containerhoras data-test="showtime">
+        <Containerhoras >
         {s.showtimes.map((a)=>
-        <Horario data-test="showtime" sethora={props.sethora} key={a.id} setid={props.setidses}s={s} a={a}/>
+        <Horario sethora={props.sethora} key={a.id} setid={props.setidses}s={s} a={a}/>
         )}
         </Containerhoras>
         </div>
