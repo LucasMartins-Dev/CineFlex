@@ -13,6 +13,7 @@ export default function Assento (props){
     props.setnomecc(nome)
     const[cpf,setcpf]=useState('')
     props.setcpff(cpf)
+ 
     console.log(ids)
     console.log(nome)
     console.log(cpf)
@@ -29,7 +30,7 @@ export default function Assento (props){
         })
       }, []);
     
-
+      console.log(lugares)
       function enviardados(){
         let envio = axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",{
             ids: ids,
