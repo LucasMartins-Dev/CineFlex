@@ -53,7 +53,7 @@ if( filmes !== null){
           <>
         <Titulo>Selecione o horário</Titulo> 
         <Sessao  sethora={sethora} setidses={setidses} id={id}/>
-        <Baixo>
+        <Baixo data-test="footer">
           <Contornoimg><img src={urlimg}/></Contornoimg>
           <h1>{nome}</h1>
         </Baixo>
