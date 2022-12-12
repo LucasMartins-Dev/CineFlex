@@ -7,18 +7,30 @@ import { Link } from "react-router-dom";
 
 export default function Assento (props){
     const[ids,setreservado]=useState([])
+    const[nid,setnid]=useState([])
+
+function atualiza(){
+    let nidd=[]
+    for(let i=0;i<ids.length;i++){
+        nidd.push(parseFloat(ids[i]))
+    }
+    setnid(nidd)
+   
+}
+   
+
     props.setasreservado(ids)
     const[lugares,setlugares]=useState([])
     const[nome,setnomec]=useState('')
     props.setnomecc(nome)
     const[cpf,setcpf]=useState('')
     props.setcpff(cpf)
- 
+    console.log(nid)
     console.log(ids)
     console.log(nome)
     console.log(cpf)
     for(let i=0;i<ids.length-1;i++){
-        if(ids[i]===ids[ids.length-1] && ids.length>1){
+        if(ids[i]==ids[ids.length-1] && ids.length>1){
             ids.splice(i,1)
             ids.splice(ids.length-1,1)
         }
@@ -33,7 +45,7 @@ export default function Assento (props){
       console.log(lugares)
       function enviardados(){
         let envio = axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",{
-            ids: ids,
+            ids: nid,
             name: nome,
             cpf: cpf
         });
@@ -49,7 +61,7 @@ export default function Assento (props){
         <>
         <Telaassento>
         {lugares.map((ast)=>
-        <Reservas key={ast.id} reservado={ids} setreservado={setreservado}ast={ast}/>
+        <Reservas atualiza={atualiza} key={ast.id} reservado={ids} setreservado={setreservado}ast={ast}/>
         )}
         </Telaassento>
         <Cores>

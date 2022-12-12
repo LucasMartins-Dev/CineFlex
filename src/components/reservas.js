@@ -6,14 +6,14 @@ export default function Reservas(props){
     
     function reservar(){
         if(props.ast.isAvailable=== true){
-            let auxx= parseFloat(props.ast.name)
-            const aux=[...props.reservado,auxx]
+            
+            const aux=[...props.reservado,props.ast.name]
             props.setreservado(aux)
         }
         else if(props.ast.isAvailable=== false){
             alert('Esse assento não está disponível')
         }
-    
+        props.atualiza()
     }
 
     return(
