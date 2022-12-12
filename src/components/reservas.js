@@ -3,7 +3,6 @@ import styled  from 'styled-components'
 
 export default function Reservas(props){
 
-    
     function reservar(){
         if(props.ast.isAvailable=== true){
             let auxxx = parseFloat(props.ast.name)
@@ -19,11 +18,13 @@ export default function Reservas(props){
     }
 
     return(
-        <Containerassento data-test="seat" onClick={reservar}  style={props.reservado.includes(props.ast.name)?{backgroundColor:'#1AAE9E'}:props.ast.isAvailable == true ? {backgroundColor:'#C3CFD9'}:{backgroundColor:'#FBE192'}}>{props.ast.name}</Containerassento>
+        <Containerassento tof={props.ast.isAvailable} reserva={props.reservado} namex={props.ast.name} data-test="seat" onClick={reservar}  style={props.reservado.includes(props.ast.name)?{backgroundColor:'#1AAE9E'}:props.ast.isAvailable == true ? {backgroundColor:'#C3CFD9'}:{backgroundColor:'#FBE192'}}>{props.ast.name}</Containerassento>
     )
 }
 
 const Containerassento = styled.button`
+border: 1px solid ;
+border-color: ${props => props.reserva.includes(props.namex)?'#0E7D71':props.tof == true ? '#808F9D':'#F7C52B'};
 display: flex;
 align-items: center;
 justify-content: center;

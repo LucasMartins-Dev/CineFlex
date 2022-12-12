@@ -37,7 +37,7 @@ export default function App() {
 if( filmes !== null){
   return (
     <BrowserRouter>
-    <Link to="/"><ContainerSuperior>CINEFLEX</ContainerSuperior></Link>
+    <Link style={{textDecoration:'none'}} to="/"><ContainerSuperior>CINEFLEX</ContainerSuperior></Link>
       <Routes>
         <Route path="/" element={
           <>

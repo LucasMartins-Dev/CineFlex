@@ -80,7 +80,7 @@ export default function Assento (props){
                 <input data-test="client-cpf" value={cpf} onChange={event => setcpf(event.target.value)} placeholder="Digite seu CPF..."></input>
             </Inputs>
         </>
-            <Link to="/sucesso"><Reserva data-test="book-seat-btn" onClick={enviardados}><button>Reservar assento(s)</button></Reserva></Link>
+            <Link style={{textDecoration:'none'}}  to="/sucesso"><Reserva data-test="book-seat-btn" onClick={enviardados}><button>Reservar assento(s)</button></Reserva></Link>
         </>
     )
 }

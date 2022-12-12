@@ -24,7 +24,7 @@ export default function Sessao (props){
         <Containerdia >{s.weekday} - {s.date}</Containerdia>
         <Containerhoras >
         {s.showtimes.map((a)=>
-         <Link key={a.id} to={`/assentos/${a.id}`}><Containerhora  data-test="showtime" onClick={()=>(props.setidses(a.id)) (props.sethora(a.name))}>{a.name}</Containerhora></Link> 
+         <Link style={{textDecoration:'none'}} key={a.id} to={`/assentos/${a.id}`}><Containerhora  data-test="showtime" onClick={()=>(props.setidses(a.id)) (props.sethora(a.name))}>{a.name}</Containerhora></Link> 
         
         )}
         </Containerhoras>
@@ -35,6 +35,8 @@ export default function Sessao (props){
 }
 
 const Containerhora = styled.button`
+border: none;
+color: white;
 display: flex;
 align-items: center;
 justify-content: center;

@@ -4,7 +4,7 @@ export default function Sucesso (props){
 
     return(
         <Containersucesso>
-            <Sucessotitulo> Pedido feito com sucesso!</Sucessotitulo>
+            <Sucessotitulo> <h1>Pedido feito</h1><h1>com sucesso!</h1> </Sucessotitulo>
             <Itens data-test="movie-info">
                 <h1>Filme e sessão</h1>
                 <h2>{props.nome}</h2>
@@ -70,7 +70,9 @@ flex-direction: column;
 justify-content: center;
 `
 const Sucessotitulo = styled.div`
+margin: 30px ;
 display: flex;
+flex-direction: column;
 align-items: center;
 justify-content: center;
 box-sizing: border-box;
