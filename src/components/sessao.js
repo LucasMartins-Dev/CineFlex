@@ -23,7 +23,7 @@ export default function Sessao (props){
         <Containerdia data-test ="movie-day">{s.weekday} - {s.date}</Containerdia>
         <Containerhoras >
         {s.showtimes.map((a)=>
-         <Link to={`/assentos/${a.id}`} data-test="showtime"><Containerhora  data-test="showtime" onClick={()=>(props.setidses(a.id)) (props.sethora(a.name))}>{a.name}</Containerhora></Link> 
+         <Link key={a.id} to={`/assentos/${a.id}`}><Containerhora  data-test="showtime" onClick={()=>(props.setidses(a.id)) (props.sethora(a.name))}>{a.name}</Containerhora></Link> 
         
         )}
         </Containerhoras>
