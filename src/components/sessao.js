@@ -1,10 +1,12 @@
 import axios from "axios"
 import { useState , useEffect } from "react"
 import styled from "styled-components";
+import Horario from "./horario";
 
 
 export default function Sessao (props){
    
+ 
 
     const[sessao,setsessao]=useState([])
     useEffect(() => {
@@ -16,14 +18,14 @@ export default function Sessao (props){
    return(
     <>
     {sessao.map((s)=>
-    <>
-        <Containerdia>{s.weekday} - {s.date}</Containerdia>
+    <div key={s.id}>
+        <Containerdia data-test ="movie-day">{s.weekday} - {s.date}</Containerdia>
         <Containerhoras>
         {s.showtimes.map((a)=>
-        <Containerhora>{a.name}</Containerhora>
+        <Horario sethora={props.sethora} key={a.id} setid={props.setidses}s={s} a={a}/>
         )}
         </Containerhoras>
-        </>
+        </div>
         )}
      </>
    )
@@ -38,17 +40,7 @@ font-weight: 400;
 margin: 22px
 
 `
-const Containerhora = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-background-color:#E8833A;
-width: 83px;
-height: 43px;
-margin: 8px;
-border-radius: 3px;
-;
-`
+
 const Containerhoras = styled.div`
 display:flex;
 margin: 14px;

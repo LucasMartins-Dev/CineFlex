@@ -18,7 +18,7 @@ return(
    
    
     <Filmetyle>
-        <Link to = {`/sessoes/${props.film.id}`}><img onClick={click} src={props.film.posterURL}/></Link>
+        <Link to = {`/sessoes/${props.film.id}`}><img data-test="movie" onClick={click} src={props.film.posterURL}/></Link>
     </Filmetyle>
 
 )

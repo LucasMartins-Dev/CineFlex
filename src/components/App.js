@@ -9,18 +9,26 @@ import Assento from "./assento"
 import styled  from 'styled-components'
 
 export default function App() {
+  const[asreservado,setasreservado]=useState([])
   const[nome,setnome]=useState('')
   const[urlimg,seturlimg]=useState('')
   const[filmes,setfilmes]=useState(null)
   const[id,setid]=useState(null)
+  const[idses,setidses]=useState('')
+  const[dia,setdia]=useState('')
+  const[hora,sethora]=useState('')
+  const[data,setdata]=useState('')
+  const[nomec,setnomec]=useState('')
+  const[cpf,setcpf]=useState('')
   
 	useEffect(() => {
   const filme = axios.get('https://mock-api.driven.com.br/api/v8/cineflex/movies')
   filme.then(promise =>{setfilmes(promise.data)})
 }, []);
-  console.log(filmes)
-  console.log(nome)
-  console.log(urlimg)
+  console.log(idses)
+  console.log(hora)
+  console.log(dia)
+  console.log(asreservado)
    
 
  
@@ -36,7 +44,7 @@ if( filmes !== null){
           <Titulo>Selecione o filme</Titulo>
           <Containerfilme>
            {filmes.map((film)=>
-           <Filme setid={setid} setnome={setnome} seturlimg={seturlimg} key={film.id} film={film}/> 
+           <Filme key={film.id} setid={setid} setnome={setnome} seturlimg={seturlimg} key={film.id} film={film}/> 
            )}
            </Containerfilme>
            </>
@@ -44,15 +52,26 @@ if( filmes !== null){
         <Route path={`/sessoes/${id}`} element={
           <>
         <Titulo>Selecione o horário</Titulo> 
-        <Sessao id={id}/>
+        <Sessao  sethora={sethora} setidses={setidses} id={id}/>
         <Baixo>
           <Contornoimg><img src={urlimg}/></Contornoimg>
           <h1>{nome}</h1>
         </Baixo>
         </>
         }/>
-        <Route path={`/assentos/:idSessao`} element={<Assento/>}/>
-        <Route path="/sucesso" element={<Sucesso/>}/>
+        <Route path={`/assentos/${idses}`} element={
+          <>
+          <Titulo>Selecione o(s) assento(s)</Titulo> 
+        <Assento setnomecc={setnomec} setcpff={setcpf}setasreservado={setasreservado}setdata={setdata} setdia={setdia} idses={idses}/>
+        <Baixo data-test="footer">
+          <Contornoimg><img src={urlimg}/></Contornoimg>
+          <h1>{nome} <br></br> {dia.weekday} - {hora}</h1>
+        </Baixo>
+        </>
+        }/>
+        <Route path="/sucesso" element={
+        <Sucesso nomec={nomec} cpf={cpf} asreservado={asreservado} dia={dia.date} nome={nome} hora={hora}/>
+        }/>
       </Routes>
     </BrowserRouter>
   )
